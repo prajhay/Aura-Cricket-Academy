@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Aura Cricket Academy Portal</title>
+  <meta name="description" content="Secure portal login for Aura Cricket Academy administrators, coaches, and student athletes.">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .login-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      background: var(--bg-darkest);
+    }
+
+    .login-visual-pane {
+      flex: 1.2;
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px;
+      overflow: hidden;
+    }
+
+    .login-visual-pane::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(3, 7, 18, 0.88) 0%, rgba(10, 22, 50, 0.8) 50%, rgba(2, 6, 23, 0.95) 100%);
+      backdrop-filter: blur(2px);
+    }
+
+    .login-visual-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .login-form-pane {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 40px;
+      position: relative;
+      background: radial-gradient(circle at 50% 50%, rgba(10, 22, 50, 0.7) 0%, var(--bg-darkest) 100%);
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 480px;
+      padding: 42px 36px;
+      background: rgba(10, 22, 50, 0.75);
+      border: 1px solid var(--border-glass);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 242, 254, 0.15);
+    }
+
+    .role-tabs {
+      display: flex;
+      background: rgba(4, 10, 26, 0.8);
+      border: 1px solid var(--border-glass);
+      border-radius: 12px;
+      padding: 4px;
+      margin: 24px 0;
+      gap: 4px;
+    }
+
+    .auth-role-btn {
+      flex: 1;
+      padding: 10px 0;
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .auth-role-btn.active {
+      background: linear-gradient(135deg, var(--cyan-neon), #0284c7);
+      color: #030712;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-wrap input {
+      width: 100%;
+      background: rgba(6, 14, 33, 0.8);
+      border: 1px solid var(--border-glass);
+      padding: 14px 16px 14px 44px;
+      border-radius: 10px;
+      color: #ffffff;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .input-wrap input:focus {
+      border-color: var(--cyan-neon);
+      box-shadow: 0 0 18px rgba(0, 242, 254, 0.35);
+    }
+
+    .input-wrap i {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--cyan-neon);
+      font-size: 1.1rem;
+    }
+
+    .quick-creds-banner {
+      background: rgba(0, 242, 254, 0.05);
+      border: 1px dashed rgba(0, 242, 254, 0.3);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+
+    .quick-creds-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .quick-fill-btn {
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      border-radius: 6px;
+      background: rgba(14, 28, 64, 0.8);
+      border: 1px solid var(--border-glass);
+      color: #fff;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .quick-fill-btn:hover, .quick-fill-btn.flash {
+      border-color: var(--cyan-neon);
+      background: var(--cyan-neon);
+      color: #030712;
+      box-shadow: 0 0 12px var(--cyan-glow);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mouse Spotlight -->
+  <div class="mouse-spotlight"></div>
+
+  <div class="login-wrapper login-split-container">
+    
+    <!-- LEFT PANE: 4K STADIUM NIGHT VISUAL -->
+    <div class="login-visual-pane">
+      <div class="login-visual-content">
+        <a href="index.html" class="brand-logo" style="margin-bottom: 40px; display: inline-flex;">
+          <img src="assets/logo.jpg" alt="Aura Cricket Academy Logo" class="brand-logo-img">
+          <div class="brand-text">
+            <span class="title">Aura</span>
+            <span class="subtitle">Cricket Academy</span>
+          </div>
+        </a>
+
+        <div class="badge-gold" style="margin-bottom: 18px;">
+          <i class="fa-solid fa-shield-halved"></i> Biometrics & Tactical System
+        </div>
+        <h1 style="font-size: 3.2rem; line-height: 1.1; margin-bottom: 20px;">
+          Where Future Champions Are Engineered.
+        </h1>
+        <p style="font-size: 1.15rem; color: #cbd5e1; max-width: 520px;">
+          Access your high-speed video swing analytics, match simulation stats, coaching regimens, and academy administrative tools.
+        </p>
+      </div>
+
+      <div class="login-visual-content">
+        <div style="display: flex; gap: 30px; align-items: center;">
+          <div>
+            <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--cyan-neon);">4000 LUX</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Broadcast Floodlights</div>
+          </div>
+          <div style="width: 1px; height: 35px; background: rgba(255,255,255,0.15);"></div>
+          <div>
+            <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--gold-primary);">1000 FPS</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">High-Speed Cameras</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANE: GLASS LOGIN CARD -->
+    <div class="login-form-pane">
+      <div class="auth-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <h2 style="font-size: 1.85rem;">Sports-Tech <span class="gradient-text-cyan">Login</span></h2>
+          <a href="index.html" style="font-size: 0.88rem; color: var(--text-muted);"><i class="fa-solid fa-arrow-left"></i> Home</a>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Select your portal role to access personalized telemetry.</p>
+
+        <!-- Role Selector Tabs -->
+        <div class="role-tabs">
+          <button type="button" class="auth-role-btn active" data-role="ADMIN">Admin</button>
+          <button type="button" class="auth-role-btn" data-role="COACH">Coach</button>
+          <button type="button" class="auth-role-btn" data-role="STUDENT">Student</button>
+        </div>
+
+        <!-- Login Form -->ss
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username">Username / Academy ID</label>
+            <div class="input-wrap">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" id="username" required placeholder="Enter Username">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" id="password" required placeholder="Enter Password">
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; font-size: 0.85rem;">
+            <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--text-secondary);">
+              <input type="checkbox" checked style="accent-color: var(--cyan-neon);"> Remember session
+            </label>
+            <a href="#" style="color: var(--cyan-neon);">Forgot credentials?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <i class="fa-solid fa-right-to-bracket"></i> Launch Dashboard
+          </button>
+        </form>
+
+        <div style="text-align: center; margin-top: 24px; font-size: 0.85rem; color: var(--text-muted);">
+          New athlete scouting registration?
+           <a href="index.html#programs" style="color: var(--gold-primary); font-weight: 600;">Apply for Trial</a>
+           Apply for Trial
+  </a>
+</div>
+
+<div style="text-align: center; margin-top: 15px;">
+  <a href="register.html" class="btn btn-primary">
+    Create New Account
+  </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

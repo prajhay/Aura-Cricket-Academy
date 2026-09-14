@@ -1,0 +1,384 @@
+/* ==========================================================
+   HERO STADIUM & CINEMATIC NIGHT ATMOSPHERE
+   4K Stadium Floodlights, Crowd Glow, Floating 3D Cricket Ball
+   ========================================================== */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 120px 0 80px 0;
+  background: radial-gradient(circle at 50% 30%, #0c1c45 0%, #050b18 60%, #02050e 100%);
+}
+
+/* Background Stadium Canvas */
+#stadium-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Stadium Floodlight Towers CSS Effects */
+.stadium-lights-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Floodlight Towers at 4 Corners */
+.floodlight-tower {
+  position: absolute;
+  width: 140px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.floodlight-tower.top-left {
+  top: 20px;
+  left: 40px;
+  transform: rotate(35deg);
+}
+
+.floodlight-tower.top-right {
+  top: 20px;
+  right: 40px;
+  transform: rotate(-35deg);
+}
+
+.floodlight-tower.mid-left {
+  top: 35%;
+  left: -20px;
+  transform: rotate(65deg);
+  opacity: 0.7;
+}
+
+.floodlight-tower.mid-right {
+  top: 35%;
+  right: -20px;
+  transform: rotate(-65deg);
+  opacity: 0.7;
+}
+
+/* High-Intensity Beam Projection */
+.light-beam {
+  position: absolute;
+  top: 50px;
+  width: 320px;
+  height: 900px;
+  background: linear-gradient(180deg, rgba(0, 242, 254, 0.45) 0%, rgba(59, 130, 246, 0.18) 35%, transparent 80%);
+  filter: blur(28px);
+  transform-origin: top center;
+  animation: beamFlicker 6s infinite ease-in-out alternate;
+  pointer-events: none;
+}
+
+.top-left .light-beam { transform: rotate(15deg); }
+.top-right .light-beam { transform: rotate(-15deg); }
+
+/* Floodlight Bulbs Matrix */
+.lamp-cluster {
+  display: grid;
+  grid-template-columns: repeat(4, 12px);
+  gap: 6px;
+  background: rgba(10, 20, 40, 0.8);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--cyan-neon);
+  box-shadow: 0 0 35px var(--cyan-neon);
+}
+
+.lamp-bulb {
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #ffffff, 0 0 30px var(--cyan-neon);
+  animation: bulbGlow 2.5s infinite alternate;
+}
+
+@keyframes bulbGlow {
+  0% { opacity: 0.85; filter: brightness(1); }
+  100% { opacity: 1; filter: brightness(1.6); }
+}
+
+@keyframes beamFlicker {
+  0% { opacity: 0.75; transform: scaleX(1); }
+  50% { opacity: 0.95; transform: scaleX(1.08); }
+  100% { opacity: 0.8; transform: scaleX(0.96); }
+}
+
+/* Pitch Silhouette Overlay at base of Hero */
+.stadium-pitch-silhouette {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 260px;
+  background: linear-gradient(180deg, transparent 0%, rgba(2, 6, 23, 0.8) 50%, var(--bg-primary) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.pitch-crease-lines {
+  position: absolute;
+  bottom: 45px;
+  left: 50%;
+  transform: translateX(-50%) perspective(400px) rotateX(65deg);
+  width: 720px;
+  height: 160px;
+  border: 2px solid rgba(0, 242, 254, 0.35);
+  box-shadow: 0 0 35px rgba(0, 242, 254, 0.25), inset 0 0 25px rgba(0, 242, 254, 0.15);
+  border-radius: 12px;
+}
+
+.pitch-crease-lines::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 215, 0, 0.4);
+  box-shadow: 0 0 10px var(--gold-primary);
+}
+
+/* HERO CONTENT CONTAINER */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(14, 28, 64, 0.8);
+  border: 1px solid rgba(0, 242, 254, 0.35);
+  padding: 8px 24px;
+  border-radius: 50px;
+  margin-bottom: 28px;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+  backdrop-filter: blur(12px);
+  animation: floatAnim 4s ease-in-out infinite;
+}
+
+.hero-pill .pulse-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--green-neon);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--green-neon);
+  animation: pulse 1.2s infinite;
+}
+
+.hero-pill span {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cyan-neon);
+}
+
+/* Dynamic Headline Typography */
+.hero-title {
+  font-size: clamp(2.8rem, 7vw, 5.4rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: 1px;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+}
+
+.hero-title .title-accent {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 0%, var(--cyan-neon) 45%, #60a5fa 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(0, 242, 254, 0.45));
+}
+
+.hero-title .title-gold {
+  background: linear-gradient(135deg, #fffbeb 0%, var(--gold-primary) 50%, var(--gold-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.4));
+}
+
+.hero-subheading {
+  font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+  color: #cbd5e1;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  max-width: 760px;
+  margin: 0 auto 40px auto;
+  text-transform: uppercase;
+  font-family: var(--font-display);
+}
+
+.hero-subheading span {
+  color: var(--cyan-neon);
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+/* Key Metrics Strip at bottom of Hero */
+.hero-stats-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 22px 36px;
+  background: rgba(10, 22, 50, 0.75);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero-stat-item .stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cyan-neon);
+  font-size: 1.2rem;
+}
+
+.hero-stat-item:nth-child(2) .stat-icon {
+  color: var(--gold-primary);
+  border-color: rgba(255, 215, 0, 0.35);
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.hero-stat-text {
+  text-align: left;
+}
+
+.hero-stat-text .stat-num {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.hero-stat-text .stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* 3D FLOATING CRICKET BALL */
+.floating-cricket-ball {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ef4444 0%, #b91c1c 45%, #7f1d1d 80%, #450a0a 100%);
+  box-shadow: 
+    0 0 30px rgba(239, 68, 68, 0.5),
+    inset -8px -8px 20px rgba(0, 0, 0, 0.8),
+    inset 4px 4px 10px rgba(255, 255, 255, 0.35);
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.8));
+}
+
+/* White Stitched Seam of Cricket Ball */
+.ball-seam {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  border-top: 2px dashed rgba(255, 255, 255, 0.85);
+  border-bottom: 2px dashed rgba(255, 255, 255, 0.85);
+  transform: translateY(-50%) rotate(38deg);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+}
+
+.floating-cricket-ball.ball-1 {
+  top: 22%;
+  right: 12%;
+  width: 100px;
+  height: 100px;
+  animation: ballOrbit1 16s ease-in-out infinite alternate;
+}
+
+.floating-cricket-ball.ball-2 {
+  bottom: 25%;
+  left: 10%;
+  width: 70px;
+  height: 70px;
+  animation: ballOrbit2 12s ease-in-out infinite alternate;
+}
+
+@keyframes ballOrbit1 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-45px, 60px) rotate(180deg) scale(1.08); }
+  100% { transform: translate(30px, 30px) rotate(360deg); }
+}
+
+@keyframes ballOrbit2 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(50px, -45px) rotate(-180deg) scale(0.92); }
+  100% { transform: translate(-20px, 20px) rotate(-360deg); }
+}
+
+/* Floating Gold Trophy Icon */
+.floating-trophy {
+  position: absolute;
+  top: 30%;
+  left: 8%;
+  font-size: 3.5rem;
+  color: var(--gold-primary);
+  filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.5));
+  animation: floatAnim 5s ease-in-out infinite;
+  opacity: 0.85;
+  z-index: 2;
+  pointer-events: none;
+}

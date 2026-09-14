@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports-Tech Cockpit | Aura Cricket Academy</title>
+  <meta name="description" content="Aura Cricket Academy Sports-Tech Cockpit - Comprehensive analytics, live telemetry, player tracking, and administrative control.">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Mouse Spotlight -->
+  <div class="mouse-spotlight"></div>
+
+  <!-- ================= COCKPIT TOP HEADER ================= -->
+  <header class="dash-header">
+    <div class="dash-header-left">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.jpg" alt="Aura Cricket Academy Logo" class="brand-logo-img">
+        <div class="brand-text">
+          <span class="title">Aura</span>
+          <span class="subtitle">Sports-Tech Cockpit</span>
+        </div>
+      </a>
+
+      <!-- Quick Role Switcher (For Evaluators & Recruiters) -->
+      <div class="role-badge-selector">
+        <button class="role-pill-btn active" data-role="ADMIN"><i class="fa-solid fa-crown"></i> Admin</button>
+        <button class="role-pill-btn" data-role="COACH"><i class="fa-solid fa-whistle"></i> Coach</button>
+        <button class="role-pill-btn" data-role="STUDENT"><i class="fa-solid fa-baseball"></i> Student</button>
+      </div>
+    </div>
+
+    <div class="dash-header-right">
+      <!-- Notification Center -->
+      <div style="position: relative;">
+        <button id="notif-bell-btn" class="notif-bell-btn" title="Notifications">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notif-count">3</span>
+        </button>
+
+        <!-- Notification Dropdown -->
+        <div id="notif-dropdown" class="glass-panel" style="display: none; position: absolute; top: 50px; right: 0; width: 340px; padding: 18px; z-index: 1000; box-shadow: 0 15px 35px rgba(0,0,0,0.8);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-glass); padding-bottom: 8px;">
+            <strong style="font-size: 0.95rem; color: #fff;">Telemetry Alerts</strong>
+            <span class="badge-cyan" style="font-size: 0.7rem;">3 New</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem;">
+            <div style="padding: 8px; background: rgba(0, 242, 254, 0.08); border-radius: 8px;">
+              <div style="font-weight: 700; color: var(--cyan-neon);">High-Velocity Alert</div>
+              <div style="color: #cbd5e1;">Kabir Mehta clocked 144.2 km/h during evening nets!</div>
+            </div>
+            <div style="padding: 8px; background: rgba(255, 215, 0, 0.08); border-radius: 8px;">
+              <div style="font-weight: 700; color: var(--gold-primary);">Tournament Fixture</div>
+              <div style="color: #cbd5e1;">Aura Premier League Finals scheduled for 19:30.</div>
+            </div>
+            <div style="padding: 8px; background: rgba(16, 185, 129, 0.08); border-radius: 8px;">
+              <div style="font-weight: 700; color: var(--green-neon);">Fee Received</div>
+              <div style="color: #cbd5e1;">Arjun Sharma Q3 term invoice settled via Card.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active User Profile -->
+      
+      <a href="index.html" class="btn btn-secondary btn-sm" title="Exit Cockpit">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= MAIN LAYOUT ================= -->
+  <div class="dashboard-layout">
+    
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="dash-sidebar">
+      <div class="dash-nav-list">
+        <div class="dash-nav-item active"><i class="fa-solid fa-gauge"></i> Overview</div>
+        <div class="dash-nav-item"><i class="fa-solid fa-users"></i> Athletes Roster</div>
+        <div class="dash-nav-item"><i class="fa-solid fa-clipboard-user"></i> Coaches Staff</div>
+        <div class="dash-nav-item"><i class="fa-solid fa-trophy"></i> Tournaments</div>
+        <div class="dash-nav-item"><i class="fa-solid fa-chart-radar"></i> Biomechanics AI</div>
+        <div class="dash-nav-item"><i class="fa-solid fa-file-invoice-dollar"></i> Fee Finance</div>
+      </div>
+
+      <div class="sidebar-system-status">
+        <div style="font-weight: 700; color: #fff; margin-bottom: 4px;">
+          <span class="status-dot"></span> Arena Telemetry: Online
+        </div>
+        <div style="color: var(--text-muted); font-size: 0.76rem;">
+          4000 Lux Floodlights • 1000fps High Speed Camera Nodes Active
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN COCKPIT VIEWPORT -->
+    <main class="dash-main">
+
+      <!-- ================= 1. ADMIN COCKPIT VIEW ================= -->
+      <section id="view-admin" class="dash-view-section active">
+        
+        <!-- KPI METRICS -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-details">
+              <h4>Total Enrolled Athletes</h4>
+              <div id="kpi-total-students" class="kpi-value">1,053</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> +14% this quarter</div>
+            </div>
+            <div class="kpi-icon-wrap"><i class="fa-solid fa-users"></i></div>
+          </div>
+
+          <div class="kpi-card gold-card">
+            <div class="kpi-details">
+              <h4>ICC Master Coaches</h4>
+              <div class="kpi-value">50</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-star"></i> 100% Certified</div>
+            </div>
+            <div class="kpi-icon-wrap"><i class="fa-solid fa-user-tie"></i></div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-details">
+              <h4>Quarterly Revenue</h4>
+              <div class="kpi-value">$94,200</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> +22.4% vs target</div>
+            </div>
+            <div class="kpi-icon-wrap"><i class="fa-solid fa-vault"></i></div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-details">
+              <h4>Average Attendance</h4>
+              <div class="kpi-value">95.8%</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-check-double"></i> Optimal readiness</div>
+            </div>
+            <div class="kpi-icon-wrap"><i class="fa-solid fa-calendar-check"></i></div>
+          </div>
+        </div>
+
+        <!-- CHARTS ROW -->
+        <div class="charts-grid">
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Academy Revenue & Fee Collections ($ USD)</h3>
+              <span class="badge-cyan">Q1 - Q3 2026</span>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Weekly Training Attendance</h3>
+              <span class="badge-gold">Nets & Sim</span>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="attendanceChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI BIOMECHANICS WIDGET -->
+        <div class="ai-biomechanics-card">
+          <div class="ai-badge"><i class="fa-solid fa-robot"></i> Aura AI Biomechanics Sensor Simulation</div>
+          <h3 style="font-size: 1.45rem; margin-bottom: 8px;">Live Kinetic Chain & Bat-Swing Telemetry</h3>
+          <p style="font-size: 0.92rem; color: #cbd5e1; max-width: 780px;">Adjust real-time sensor parameters to calculate exit velocity, impact ball-carry projection, and instant AI coaching recommendations.</p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px;">
+            <div>
+              <label style="display: flex; justify-content: space-between; font-size: 0.88rem; color: #e2e8f0; margin-bottom: 8px;">
+                <span>Bat Swing Speed:</span>
+                <strong style="color: var(--cyan-neon);">130 km/h</strong>
+              </label>
+              <input type="range" id="slider-bat-speed" min="90" max="155" value="130" style="width: 100%; accent-color: var(--cyan-neon);">
+            </div>
+            <div>
+              <label style="display: flex; justify-content: space-between; font-size: 0.88rem; color: #e2e8f0; margin-bottom: 8px;">
+                <span>High-Elbow Elevation Angle:</span>
+                <strong style="color: var(--gold-primary);">88°</strong>
+              </label>
+              <input type="range" id="slider-elbow-angle" min="60" max="110" value="88" style="width: 100%; accent-color: var(--gold-primary);">
+            </div>
+          </div>
+
+          <div class="ai-metrics-row">
+            <div class="ai-metric-box">
+              <h5>Projected Exit Velocity</h5>
+              <div id="ai-exit-velocity" class="metric-reading">153 km/h</div>
+            </div>
+            <div class="ai-metric-box">
+              <h5>Calculated Launch Angle</h5>
+              <div id="ai-launch-angle" class="metric-reading" style="color: var(--gold-primary);">22°</div>
+            </div>
+            <div class="ai-metric-box">
+              <h5>Boundary Probability</h5>
+              <div class="metric-reading" style="color: var(--green-neon);">96.8%</div>
+            </div>
+          </div>
+
+          <div id="ai-feedback-text" class="ai-feedback-box">
+            <strong>✨ Elite Class Execution:</strong> High-elbow elevation of 88° provides supreme bat flow through mid-off. Projected carry distance: 88 meters (Six Runs Guaranteed).
+          </div>
+        </div>
+
+        <!-- STUDENTS ROSTER DATA TABLE (CRUD) -->
+
+</section>
+
+<!-- ================= 2. COACH COCKPIT VIEW ================= -->
+<section id="view-coach" class="dash-view-section">
+        <div class="glass-panel" style="padding: 28px; margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; gap: 20px;">
+          <div style="display: flex; align-items: center; gap: 20px;">
+            <img src="assets/c3 project.jpg" alt="Coach MS dhonis" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--cyan-neon); object-fit: cover;">
+            <div>
+              <span class="badge-cyan" style="margin-bottom: 6px;">Head Coach • Batting & Power Hitting</span>
+              <h2 style="font-size: 1.8rem; margin: 4px 0;">MS DHONI</h2>
+              <p style="font-size: 0.9rem; color: #cbd5e1;">Assigned Squad: 28 Athletes • Next Net Session: Today 17:00 (Nets 1 & 2)</p>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="showToast('Drills Dispatched', 'Daily Power Hitting regimens sent to 28 athletes.', 'success')">
+            <i class="fa-solid fa-paper-plane"></i> Dispatch Training Drill
+          </button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-bottom: 30px;">
+          <!-- Assigned Players -->
+          <div class="glass-panel" style="padding: 24px;">
+            <h3 style="margin-bottom: 16px;">Assigned High-Performance Squad</h3>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: rgba(0, 242, 254, 0.05); border-radius: 10px; border: 1px solid var(--border-glass);">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <img src="assets/virat3.jpg" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover;">
+                  <div>
+                    <strong>Virat Kohli</strong> (Jersey #18)
+                    <div style="font-size: 0.78rem; color: var(--text-muted);">Top-Order • Bat Speed 131 km/h</div>
+                  </div>
+                </div>
+                <span class="badge-gold">Rank #1 U-19</span>
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: rgba(0, 242, 254, 0.05); border-radius: 10px; border: 1px solid var(--border-glass);">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <img src="assets/c4 profect.jpg" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover;">
+                  <div>
+                    <strong>Smriti Mandhana</strong> (Jersey #18)
+                    <div style="font-size: 0.78rem; color: var(--text-muted);">Bater,Allrounder • Strike Rate 148</div>
+                  </div>
+                </div>
+                <span class="badge-cyan">Top Prospect</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Training Schedule -->
+          <div class="glass-panel" style="padding: 24px;">
+            <h3 style="margin-bottom: 16px;">Today's Training Regimen</h3>
+            <ul style="display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem;">
+              <li style="padding: 10px; background: rgba(14, 28, 64, 0.6); border-radius: 8px;">
+                <strong style="color: var(--cyan-neon);">17:00 - 18:00:</strong> 98 km/h Machine Short Ball Pull Drills
+              </li>
+              <li style="padding: 10px; background: rgba(14, 28, 64, 0.6); border-radius: 8px;">
+                <strong style="color: var(--gold-primary);">18:15 - 19:30:</strong> Match Simulation (Need 38 in 18 balls)
+              </li>
+              <li style="padding: 10px; background: rgba(14, 28, 64, 0.6); border-radius: 8px;">
+                <strong style="color: var(--green-neon);">19:45 - 20:30:</strong> Cryo Recovery & Video Debrief
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 3. STUDENT COCKPIT VIEW ================= -->
+      <section id="view-student" class="dash-view-section">
+        
+        <!-- Student Hero Banner -->
+        <div class="glass-panel" style="padding: 28px; margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+          <div style="display: flex; align-items: center; gap: 20px;">
+            <img src="assets/virat3.jpg" alt="Virat Kohli" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--cyan-neon); object-fit: cover;">
+            <div>
+              <span class="badge-gold" style="margin-bottom: 6px;">Under-19 High Performance Squad</span>
+              <h2 style="font-size: 1.8rem; margin: 4px 0;">virat kohli <span style="color: var(--cyan-neon); font-size: 1.2rem;">#18</span></h2>
+              <p style="font-size: 0.9rem; color: #cbd5e1;">Top-Order Batsman • Assigned Mentor: Ricky Vance (ICC Level 4)</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 12px;">
+            <button class="btn btn-secondary btn-sm" onclick="showToast('Fee Receipt', 'Q3 Term Invoice INV-2026-0089 Downloaded (PDF)', 'gold')">
+              <i class="fa-solid fa-download"></i> Fee Receipt
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="showToast('Slot Reserved', 'Reserved Net 2 for tomorrow 06:30 AM', 'success')">
+              <i class="fa-solid fa-calendar-plus"></i> Book Net Slot
+            </button>
+          </div>
+        </div>
+
+        <!-- Student Stats Summary -->
+        <div class="student-stat-summary">
+          <!-- Attendance Radial Ring -->
+          <div class="glass-panel radial-progress-wrap">
+            <h4 style="margin-bottom: 12px;">Session Attendance</h4>
+            <div class="radial-circle">
+              <div class="radial-inner">96.4%</div>
+            </div>
+            <span class="status-pill status-active">Top 5% Tier</span>
+          </div>
+
+          <!-- Batting Highlights -->
+          <div class="glass-panel" style="padding: 24px; display: flex; flex-direction: column; justify-content: center;">
+            <h4 style="margin-bottom: 16px; color: var(--text-secondary);">Season Match Metrics</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">Runs Scored</div>
+                <div style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: #fff;">482</div>
+              </div>
+              <div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">Strike Rate</div>
+                <div style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--cyan-neon);">164.8</div>
+              </div>
+              <div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">Highest Score</div>
+                <div style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--gold-primary);">104*</div>
+              </div>
+              <div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">Sixes Hit</div>
+                <div style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: #fff;">28</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Win Prob Doughnut -->
+          <div class="glass-panel" style="padding: 24px;">
+            <h4 style="margin-bottom: 10px;">Upcoming Finals Win Probability</h4>
+            <div style="height: 180px; position: relative;">
+              <canvas id="winProbChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Biomechanics Radar & Badges -->
+        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px;">
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Biomechanics & Skill Diagnostic Radar</h3>
+              <span class="badge-cyan">vs IPL Benchmark</span>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="skillsRadarChart"></canvas>
+            </div>
+          </div>
+
+          <div class="glass-panel" style="padding: 24px;">
+            <h3 style="margin-bottom: 18px;">Earned Academy Milestones</h3>
+            <div class="badges-container">
+              <div class="achievement-badge">
+                <i class="fa-solid fa-trophy"></i>
+                <div>
+                  <h5>Century Club 2026</h5>
+                  <p>104* off 62 vs Bravado CC</p>
+                </div>
+              </div>
+              <div class="achievement-badge">
+                <i class="fa-solid fa-bolt"></i>
+                <div>
+                  <h5>130+ Bat Velocity</h5>
+                  <p>Sensor peak: 131.0 km/h</p>
+                </div>
+              </div>
+              <div class="achievement-badge">
+                <i class="fa-solid fa-medal"></i>
+                <div>
+                  <h5>Player of the Tournament</h5>
+                  <p>Summer Cup MVP Honors</p>
+                </div>
+              </div>
+              <div class="achievement-badge">
+                <i class="fa-solid fa-shield-heart"></i>
+                <div>
+                  <h5>Iron Endurance</h5>
+                  <p>30 Consecutive Training Days</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ================= ADD STUDENT MODAL ================= -->
+  <div id="add-student-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(16px); z-index: 99999; align-items: center; justify-content: center;">
+    <div class="glass-panel" style="max-width: 520px; width: 92%; padding: 34px; border: 1px solid var(--cyan-neon); position: relative;">
+      <button id="close-add-student-modal" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.5rem; color: #94a3b8; cursor: pointer;">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <span class="badge-cyan" style="margin-bottom: 10px;">Academy Enrollment</span>
+      <h2 style="font-size: 1.7rem; margin-bottom: 16px;">Enroll New Athlete</h2>
+
+      <form id="add-student-form" style="display: flex; flex-direction: column; gap: 14px;">
+        <div>
+          <label style="display: block; font-size: 0.85rem; margin-bottom: 6px; color: var(--text-secondary);">Full Name</label>
+          <input type="text" id="new-student-name" required placeholder="e.g. Yashvardhan Rao" style="width: 100%; background: rgba(14, 28, 64, 0.7); border: 1px solid var(--border-glass); padding: 10px 14px; border-radius: 8px; color: #fff; font-family: var(--font-body); outline: none;">
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div>
+            <label style="display: block; font-size: 0.85rem; margin-bottom: 6px; color: var(--text-secondary);">Age</label>
+            <input type="number" id="new-student-age" required value="17" min="10" max="25" style="width: 100%; background: rgba(14, 28, 64, 0.7); border: 1px solid var(--border-glass); padding: 10px 14px; border-radius: 8px; color: #fff; font-family: var(--font-body); outline: none;">
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.85rem; margin-bottom: 6px; color: var(--text-secondary);">Category</label>
+            <select id="new-student-category" style="width: 100%; background: #0a1428; border: 1px solid var(--border-glass); padding: 10px 14px; border-radius: 8px; color: #fff; font-family: var(--font-body); outline: none;">
+              <option value="Under-15 Elite">Under-15 Elite</option>
+              <option value="Under-19 High Performance" selected>Under-19 High Performance</option>
+              <option value="Senior Pro Squad">Senior Pro Squad</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.85rem; margin-bottom: 6px; color: var(--text-secondary);">Primary Role</label>
+          <select id="new-student-role" style="width: 100%; background: #0a1428; border: 1px solid var(--border-glass); padding: 10px 14px; border-radius: 8px; color: #fff; font-family: var(--font-body); outline: none;">
+            <option value="Top-Order Batsman">Top-Order Batsman</option>
+            <option value="Fast Bowler">Fast Bowler</option>
+            <option value="All-Rounder">All-Rounder</option>
+            <option value="Wicketkeeper Batsman">Wicketkeeper Batsman</option>
+            <option value="Spin Specialist">Spin Specialist</option>
+          </select>
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.85rem; margin-bottom: 6px; color: var(--text-secondary);">Assign Coach</label>
+          <select id="new-student-coach" style="width: 100%; background: #0a1428; border: 1px solid var(--border-glass); padding: 10px 14px; border-radius: 8px; color: #fff; font-family: var(--font-body); outline: none;">
+            <option value="Ricky Vance">Ricky Vance (Batting)</option>
+            <option value="Dale Steer">Dale Steer (Fast Bowling)</option>
+            <option value="Muralith R.">Muralith Ravichandran (Spin)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 10px; width: 100%;">
+          <i class="fa-solid fa-user-plus"></i> Save & Enroll Athlete
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

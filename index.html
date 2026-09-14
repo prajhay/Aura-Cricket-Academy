@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Cricket Academy | Where Future Champions Are Built</title>
+  <meta name="description" content="Aura Cricket Academy - World-class professional cricket training institute featuring 4000-lux night floodlights, ICC certified coaches, and high-performance sports-tech analytics.">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/hero-stadium.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ================= PRELOADER ================= -->
+  <div id="preloader">
+    <div class="pitch-loader">
+      <div class="pitch-strip"></div>
+      <div class="loader-ball"></div>
+      <div class="loader-stumps">
+        <div class="stump-stick"></div>
+        <div class="stump-stick"></div>
+        <div class="stump-stick"></div>
+      </div>
+    </div>
+    <div class="loader-text">Preparing Pitch & Floodlights...</div>
+  </div>
+
+  <!-- Mouse Tracking Spotlight -->
+  <div class="mouse-spotlight"></div>
+
+  <!-- ================= NAVIGATION BAR ================= -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.jpg" alt="Aura Cricket Academy Logo" class="brand-logo-img">
+        <div class="brand-text">
+          <span class="title">Aura</span>
+          <span class="subtitle">Cricket Academy</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#hero" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#programs" class="nav-link"><i class="fa-solid fa-baseball-bat-ball"></i> Programs</a>
+        <a href="#coaches" class="nav-link"><i class="fa-solid fa-user-tie"></i> Coaches</a>
+        <a href="#statistics" class="nav-link"><i class="fa-solid fa-chart-simple"></i> Statistics</a>
+        <a href="#tournaments" class="nav-link"><i class="fa-solid fa-trophy"></i> Tournaments</a>
+        <a href="#gallery" class="nav-link"><i class="fa-solid fa-images"></i> Gallery</a>
+        <a href="login.html" class="nav-link"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="login.html" class="nav-link"><i class="fa-solid fa-lock"></i> Login</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <a href="login.html" class="btn btn-primary btn-sm">
+          <i class="fa-solid fa-bolt"></i> Join Now
+        </a>
+        <button class="mobile-toggle" aria-label="Open Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="hero" class="hero-section">
+    <!-- HTML5 Stadium Floodlight & Particle Canvas -->
+    <canvas id="stadium-canvas"></canvas>
+
+    <!-- Stadium Floodlight Towers & Beams -->
+    <div class="stadium-lights-wrapper">
+      <div class="floodlight-tower top-left">
+        <div class="lamp-cluster">
+          <div class="lamp-bulb"></div><div class="lamp-bulb"></div><div class="lamp-bulb"></div><div class="lamp-bulb"></div>
+          <div class="lamp-bulb"></div><div class="lamp-bulb"></div><div class="lamp-bulb"></div><div class="lamp-bulb"></div>
+        </div>
+        <div class="light-beam"></div>
+      </div>
+      <div class="floodlight-tower top-right">
+        <div class="lamp-cluster">
+          <div class="lamp-bulb"></div><div class="lamp-bulb"></div><div class="lamp-bulb"></div><div class="lamp-bulb"></div>
+          <div class="lamp-bulb"></div><div class="lamp-bulb"></div><div class="lamp-bulb"></div><div class="lamp-bulb"></div>
+        </div>
+        <div class="light-beam"></div>
+      </div>
+    </div>
+
+    <!-- 3D Floating Cricket Balls -->
+    <div class="floating-cricket-ball ball-1">
+      <div class="ball-seam"></div>
+    </div>
+    <div class="floating-cricket-ball ball-2">
+      <div class="ball-seam"></div>
+    </div>
+    <div class="floating-trophy">
+      <i class="fa-solid fa-trophy"></i>
+    </div>
+
+    <!-- Pitch Silhouette -->
+    <div class="stadium-pitch-silhouette">
+      <div class="pitch-crease-lines"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <div class="hero-pill">
+        <div class="pulse-dot"></div>
+        <span>ICC Certified High-Performance Center</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="title-accent">Aura Cricket</span><br>
+        <span class="title-gold">Academy</span>
+      </h1>
+
+      <p class="hero-subheading">
+        Where <span>Future Champions</span> Are Built
+      </p>
+
+      <div class="hero-actions">
+        <a href="login.html" class="btn btn-primary">
+          <i class="fa-solid fa-bolt"></i> Join Now
+        </a>
+        <a href="#programs" class="btn btn-secondary">
+          <i class="fa-solid fa-compass"></i> Explore Programs
+        </a>
+      </div>
+
+      <!-- Quick Stats Strip -->
+      <div class="hero-stats-strip">
+        <div class="hero-stat-item">
+          <div class="stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="hero-stat-text">
+            <div class="stat-num">1,000+</div>
+            <div class="stat-label">Graduated Talents</div>
+          </div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="stat-icon"><i class="fa-solid fa-medal"></i></div>
+          <div class="hero-stat-text">
+            <div class="stat-num">50+</div>
+            <div class="stat-label">ICC Coaches</div>
+          </div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="hero-stat-text">
+            <div class="stat-num">95%</div>
+            <div class="stat-label">Draft Success Rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ELITE PROGRAMS SECTION ================= -->
+  <section id="programs" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><span class="badge-cyan"><i class="fa-solid fa-fire"></i> Next-Gen Curriculum</span></div>
+        <h2 class="section-title">Elite Training <span class="gradient-text-cyan">Programs</span></h2>
+        <p class="section-desc">Designed with international coaching protocols, high-speed biomechanics sensors, and real match pressure simulations.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 28px;">
+        
+        <!-- Program 1: Power Hitting -->
+        <div class="glass-panel tilt-card" style="padding: 36px 28px;">
+          <div style="width: 58px; height: 58px; border-radius: 16px; background: rgba(0, 242, 254, 0.12); border: 1px solid var(--cyan-neon); display: flex; align-items: center; justify-content: center; color: var(--cyan-neon); font-size: 1.6rem; margin-bottom: 24px; box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);">
+            <i class="fa-solid fa-burst"></i>
+          </div>
+          <div class="badge-cyan" style="font-size: 0.72rem; margin-bottom: 12px;">T20 & The Hundred Spec</div>
+          <h3 style="margin-bottom: 14px;">Power Hitting Program</h3>
+          <p style="margin-bottom: 22px; font-size: 0.95rem;">Master the 360-degree range hitting mechanics, bottom-hand torque transfer, and high-speed bat speed acceleration exceeding 135 km/h.</p>
+          <ul style="margin-bottom: 26px; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; color: #cbd5e1;">
+            <li><i class="fa-solid fa-check" style="color: var(--cyan-neon); margin-right: 8px;"></i> Kinetic Chain Bat Swing Analysis</li>
+            <li><i class="fa-solid fa-check" style="color: var(--cyan-neon); margin-right: 8px;"></i> Radar Exit Velocity Tracking</li>
+            <li><i class="fa-solid fa-check" style="color: var(--cyan-neon); margin-right: 8px;"></i> Death-Overs Scenario Drills</li>
+          </ul>
+          <a href="#" class="btn btn-secondary btn-sm open-trial-modal" style="width: 100%;">Enroll in Program</a>
+        </div>
+
+        <!-- Program 2: Fast Bowling -->
+        <div class="glass-panel tilt-card glass-gold" style="padding: 36px 28px;">
+          <div style="width: 58px; height: 58px; border-radius: 16px; background: rgba(255, 215, 0, 0.12); border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; color: var(--gold-primary); font-size: 1.6rem; margin-bottom: 24px; box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);">
+            <i class="fa-solid fa-bolt-lightning"></i>
+          </div>
+          <div class="badge-gold" style="font-size: 0.72rem; margin-bottom: 12px;">145+ km/h Express Pace</div>
+          <h3 style="margin-bottom: 14px;">Fast Bowling Academy</h3>
+          <p style="margin-bottom: 22px; font-size: 0.95rem;">Unleash raw pace with injury-free biomechanics. Master the upright seam release, reverse swing under stadium floodlights, and toe-crushing yorkers.</p>
+          <ul style="margin-bottom: 26px; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; color: #cbd5e1;">
+            <li><i class="fa-solid fa-check" style="color: var(--gold-primary); margin-right: 8px;"></i> High-Speed 1000fps Seam Cameras</li>
+            <li><i class="fa-solid fa-check" style="color: var(--gold-primary); margin-right: 8px;"></i> Fast Bowler Workload & Load Metrics</li>
+            <li><i class="fa-solid fa-check" style="color: var(--gold-primary); margin-right: 8px;"></i> Yorker Target Precision Practice</li>
+          </ul>
+          <a href="#" class="btn btn-gold btn-sm open-trial-modal" style="width: 100%;">Enroll in Program</a>
+        </div>
+
+        <!-- Program 3: Spin Mastery -->
+        <div class="glass-panel tilt-card" style="padding: 36px 28px;">
+          <div style="width: 58px; height: 58px; border-radius: 16px; background: rgba(0, 242, 254, 0.12); border: 1px solid var(--cyan-neon); display: flex; align-items: center; justify-content: center; color: var(--cyan-neon); font-size: 1.6rem; margin-bottom: 24px; box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);">
+            <i class="fa-solid fa-arrows-spin"></i>
+          </div>
+          <div class="badge-cyan" style="font-size: 0.72rem; margin-bottom: 12px;">Mystery & Flight Lab</div>
+          <h3 style="margin-bottom: 14px;">Spin Mastery Program</h3>
+          <p style="margin-bottom: 22px; font-size: 0.95rem;">Master the art of revolutions per minute (RPM). Develop lethal doosras, flippers, subtle drift, and mental manipulation of opposing batsmen.</p>
+          <ul style="margin-bottom: 26px; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; color: #cbd5e1;">
+            <li><i class="fa-solid fa-check" style="color: var(--cyan-neon); margin-right: 8px;"></i> RPM Spin Rate Diagnostic Sensor</li>
+            <li><i class="fa-solid fa-check" style="color: var(--cyan-neon); margin-right: 8px;"></i> Turf, Red Soil & Matting Pitch Training</li>
+            <li><i class="fa-solid fa-check" style="color: var(--cyan-neon); margin-right: 8px;"></i> Wrist & Finger Cock Variations</li>
+          </ul>
+          <a href="#" class="btn btn-secondary btn-sm open-trial-modal" style="width: 100%;">Enroll in Program</a>
+        </div>
+
+        <!-- Program 4: Match Training -->
+        <div class="glass-panel tilt-card" style="padding: 36px 28px;">
+          <div style="width: 58px; height: 58px; border-radius: 16px; background: rgba(59, 130, 246, 0.12); border: 1px solid var(--electric-blue); display: flex; align-items: center; justify-content: center; color: var(--electric-blue); font-size: 1.6rem; margin-bottom: 24px; box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div class="badge-cyan" style="font-size: 0.72rem; margin-bottom: 12px;">Full Match Simulation</div>
+          <h3 style="margin-bottom: 14px;">Professional Match Pro</h3>
+          <p style="margin-bottom: 22px; font-size: 0.95rem;">Experience high-stakes pressure cricket under night floodlights. Multi-day red ball tactical endurance and white-ball death over strategy.</p>
+          <ul style="margin-bottom: 26px; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; color: #cbd5e1;">
+            <li><i class="fa-solid fa-check" style="color: var(--cyan-neon); margin-right: 8px;"></i> Broadcast-Grade Match Telecast</li>
+            <li><i class="fa-solid fa-check" style="color: var(--cyan-neon); margin-right: 8px;"></i> Real-Time Video Analyst Debriefs</li>
+            <li><i class="fa-solid fa-check" style="color: var(--cyan-neon); margin-right: 8px;"></i> Mentorship from IPL Scouts</li>
+          </ul>
+          <a href="#" class="btn btn-secondary btn-sm open-trial-modal" style="width: 100%;">Enroll in Program</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MEET OUR COACHES ================= -->
+  <section id="coaches" class="section" style="background: linear-gradient(180deg, transparent, rgba(10, 20, 48, 0.4), transparent);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><span class="badge-gold"><i class="fa-solid fa-star"></i> World-Class Pedigree</span></div>
+        <h2 class="section-title">Meet Our <span class="gradient-text-gold">Master Coaches</span></h2>
+        <p class="section-desc">Trained by former international captains, franchise tacticians, and ICC Level 4 high-performance directors.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        
+        <!-- Coach 1 -->
+        <div class="glass-panel" style="padding: 34px 24px; text-align: center;">
+          <div style="position: relative; width: 140px; height: 140px; margin: 0 auto 22px auto;">
+            <img src="assets/c3 project.jpg" alt="Ricky Vance" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold-primary); box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);">
+            <span class="badge-gold" style="position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); font-size: 0.7rem; white-space: nowrap;">
+              <i class="fa-solid fa-shield"></i> 20+ Yrs Exp
+            </span>
+          </div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 4px;"> Mahendra Singh Dhoni</h3>
+          <p style="color: var(--gold-primary); font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 0.88rem; margin-bottom: 14px;">Head Coach • Batting & Power Hitting • Wicket Keeper </p>
+          <p style="font-size: 0.92rem; margin-bottom: 20px;"> one of the most successful captains and clinical finishers in the history of international cricket. His monumental list of achievements spans captaincy milestones, individual world records, domestic triumphs, and prestigious national honors.</p>
+          <div style="display: flex; justify-content: center; gap: 14px; margin-bottom: 20px;">
+            <span class="social-btn"><i class="fa-brands fa-linkedin"></i></span>
+            <span class="social-btn"><i class="fa-brands fa-x-twitter"></i></span>
+            <span class="social-btn"><i class="fa-brands fa-instagram"></i></span>
+          </div>
+          <div style="padding: 10px; background: rgba(242, 255, 1, 0.08); border-radius: 10px; font-size: 0.82rem; color: #e2e8f0;">
+            <i class="fa-solid fa-award" style="color: var(--gold-primary);"></i> THALA FOR A RESON
+          </div>
+        </div>
+
+        <!-- Coach 2 -->
+        <div class="glass-panel glass-gold" style="padding: 34px 24px; text-align: center;">
+          <div style="position: relative; width: 140px; height: 140px; margin: 0 auto 22px auto;">
+            <img src="assets/c2 project.jpg" alt="Dale Steer" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold-primary); box-shadow: 0 0 25px rgba(63, 226, 255, 0.4);">
+            <span class="badge-gold" style="position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); font-size: 0.7rem; white-space: nowrap;">
+              <i class="fa-solid fa-shield"></i> 14+ Yrs Exp
+            </span>
+          </div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 4px;">Ramakrishnan Sridhar</h3>
+          <p style="color: var(--gold-primary); font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 0.88rem; margin-bottom: 14px;">Fast Bowling Director</p>
+          <p style="font-size: 0.92rem; margin-bottom: 20px;">He served as the fielding coach for the Indian National Cricket Team from 2014 to 2021, playing a pivotal role in transforming India into one of the world's elite fielding units. He is also the co-founder of Coaching Beyond, a high-performance cricket academy alongside Ravi Shastri and Bharat Arun.</p>
+          <div style="display: flex; justify-content: center; gap: 14px; margin-bottom: 20px;">
+            <span class="social-btn"><i class="fa-brands fa-linkedin"></i></span>
+            <span class="social-btn"><i class="fa-brands fa-x-twitter"></i></span>
+            <span class="social-btn"><i class="fa-brands fa-instagram"></i></span>
+          </div>
+          <div style="padding: 10px; background: rgba(255, 217, 0, 0.08); border-radius: 10px; font-size: 0.82rem; color: #f9f9f9;">
+            <i class="fa-solid fa-bolt" style="color: var(--cyan-neon);"></i> Clocked 4 Trainees over 145 km/h
+          </div>
+        </div>
+
+        <!-- Coach 3 -->
+        <div class="glass-panel" style="padding: 34px 24px; text-align: center;">
+          <div style="position: relative; width: 140px; height: 140px; margin: 0 auto 22px auto;">
+            <img src="assets/c1 project.jpg" alt="Muralith R." style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold-primary); box-shadow: 0 0 25px rgba(80, 240, 255, 0.4);">
+            <span class="badge-gold" style="position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); font-size: 0.7rem; white-space: nowrap;">
+              <i class="fa-solid fa-shield"></i> 18+ Yrs Exp
+            </span>
+          </div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 4px;"> Lalchand Rajput</h3>
+          <p style="color: var(--gold-primary); font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 0.88rem; margin-bottom: 14px;">Spin & Mystery Consultant</p>
+          <p style="font-size: 0.92rem; margin-bottom: 20px;">Head Coach of the UAE Men's National Cricket Team. Manager of Team India International Coaching Experience: Before taking charge of the UAE, he held major international head coaching tenures with both Afghanistan (2016–2017) and Zimbabwe (2018–2022).</p>
+          <div style="display: flex; justify-content: center; gap: 14px; margin-bottom: 20px;">
+            <span class="social-btn"><i class="fa-brands fa-linkedin"></i></span>
+            <span class="social-btn"><i class="fa-brands fa-x-twitter"></i></span>
+            <span class="social-btn"><i class="fa-brands fa-instagram"></i></span>
+          </div>
+          <div style="padding: 10px; background: rgba(225, 255, 0, 0.08); border-radius: 10px; font-size: 0.82rem; color: #fff6f6;">
+            <i class="fa-solid fa-microchip" style="color: var(--cyan-neon);"></i> ICC High Performance Consultant
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ACADEMY STATISTICS ================= -->
+  <section id="statistics" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><span class="badge-cyan"><i class="fa-solid fa-chart-line"></i> Proven Excellence</span></div>
+        <h2 class="section-title">Academy <span class="gradient-text-cyan">Statistics</span></h2>
+        <p class="section-desc">Our numbers reflect relentless dedication, 4K video tracking, and unmatched talent transition into professional cricket leagues.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+        
+        <div class="glass-panel" style="padding: 38px 24px; text-align: center;">
+          <div style="font-size: 2.6rem; color: var(--cyan-neon); margin-bottom: 14px;">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+          <div class="counter-value" data-target="1000" style="font-family: var(--font-display); font-size: 3.4rem; font-weight: 800; color: #ffffff; line-height: 1;">0</div>
+          <div style="font-size: 1.5rem; font-weight: 800; color: var(--cyan-neon); margin-top: -6px;">+</div>
+          <p style="font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; color: #cbd5e1;">Students Trained</p>
+        </div>
+
+        <div class="glass-panel glass-gold" style="padding: 38px 24px; text-align: center;">
+          <div style="font-size: 2.6rem; color: var(--gold-primary); margin-bottom: 14px;">
+            <i class="fa-solid fa-id-badge"></i>
+          </div>
+          <div class="counter-value" data-target="50" style="font-family: var(--font-display); font-size: 3.4rem; font-weight: 800; color: #ffffff; line-height: 1;">0</div>
+          <div style="font-size: 1.5rem; font-weight: 800; color: var(--gold-primary); margin-top: -6px;">+</div>
+          <p style="font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; color: #cbd5e1;">ICC Certified Coaches</p>
+        </div>
+
+        <div class="glass-panel" style="padding: 38px 24px; text-align: center;">
+          <div style="font-size: 2.6rem; color: var(--cyan-neon); margin-bottom: 14px;">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <div class="counter-value" data-target="200" style="font-family: var(--font-display); font-size: 3.4rem; font-weight: 800; color: #ffffff; line-height: 1;">0</div>
+          <div style="font-size: 1.5rem; font-weight: 800; color: var(--cyan-neon); margin-top: -6px;">+</div>
+          <p style="font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; color: #cbd5e1;">Championship Trophies</p>
+        </div>
+
+        <div class="glass-panel glass-gold" style="padding: 38px 24px; text-align: center;">
+          <div style="font-size: 2.6rem; color: var(--gold-primary); margin-bottom: 14px;">
+            <i class="fa-solid fa-fire"></i>
+          </div>
+          <div class="counter-value" data-target="95" style="font-family: var(--font-display); font-size: 3.4rem; font-weight: 800; color: #ffffff; line-height: 1;">0</div>
+          <div style="font-size: 1.5rem; font-weight: 800; color: var(--gold-primary); margin-top: -6px;">%</div>
+          <p style="font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; color: #cbd5e1;">Professional Success Rate</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TOURNAMENT SECTION ================= -->
+  <section id="tournaments" class="section" style="background: radial-gradient(circle at 50% 50%, rgba(14, 28, 64, 0.4) 0%, transparent 80%);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><span class="badge-gold"><i class="fa-solid fa-trophy"></i> Championship Action</span></div>
+        <h2 class="section-title">Tournaments & <span class="gradient-text-gold">Live Scores</span></h2>
+        <p class="section-desc">Broadcast-style live scorecards, tournament fixtures, and player leaderboards.</p>
+      </div>
+
+      <!-- Live Match Scorecard Simulation -->
+      <div class="glass-panel" style="padding: 30px; margin-bottom: 40px; border: 1px solid var(--cyan-neon); box-shadow: 0 0 35px rgba(0, 242, 254, 0.25);">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-glass); padding-bottom: 16px; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span class="badge-gold" style="background: #ff3366; color: #fff; box-shadow: 0 0 15px rgba(255, 51, 102, 0.5);">
+              <span class="pulse-dot" style="background: #fff;"></span> LIVE T20 FINALS
+            </span>
+            <span style="font-family: var(--font-display); font-size: 1.1rem; color: #cbd5e1;">AURA PREMIER LEAGUE • FLOODLIGHT ARENA</span>
+          </div>
+          <div style="font-family: var(--font-display); font-size: 0.95rem; color: var(--cyan-neon);">
+            <i class="fa-regular fa-clock"></i> Match In Progress • 18.2 Overs
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px; text-align: center;">
+          <!-- Team A -->
+          <div style="text-align: right;">
+            <h3 style="font-size: 1.8rem; color: #fff;">Aura Strikers</h3>
+            <div style="font-family: var(--font-display); font-size: 2.8rem; font-weight: 800; color: var(--cyan-neon);">
+              186/4 <span style="font-size: 1.2rem; color: var(--text-muted); font-weight: 400;">(20.0)</span>
+            </div>
+            <p style="font-size: 0.88rem; color: #cbd5e1;">Arjun Sharma 78* (42) • CRR: 9.30</p>
+          </div>
+
+          <!-- VS Badge -->
+          <div>
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(14, 28, 64, 0.9); border: 2px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 800; color: var(--gold-primary); box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);">
+              VS
+            </div>
+          </div>
+
+          <!-- Team B -->
+          <div style="text-align: left;">
+            <h3 style="font-size: 1.8rem; color: #fff;">Titan Velocity</h3>
+            <div style="font-family: var(--font-display); font-size: 2.8rem; font-weight: 800; color: var(--gold-primary);">
+              164/6 <span style="font-size: 1.2rem; color: var(--text-muted); font-weight: 400;">(18.2)</span>
+            </div>
+            <p style="font-size: 0.88rem; color: #cbd5e1;">Need 23 runs in 10 balls • RRR: 13.80</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; padding: 14px; background: rgba(0, 242, 254, 0.06); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; flex-wrap: wrap; gap: 10px;">
+          <div><strong>Bowler:</strong> Kabir Mehta (3.2-0-24-3) • 144.2 km/h Yorker on middle stump</div>
+          <div style="color: var(--green-neon); font-weight: 600;"><i class="fa-solid fa-chart-pie"></i> Win Probability: Aura Strikers 74%</div>
+        </div>
+      </div>
+
+      <!-- Upcoming Match Schedule Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+        <div class="glass-panel" style="padding: 24px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+            <span class="badge-cyan">Under-19 Cup</span>
+            <span style="color: var(--gold-primary); font-size: 0.85rem;"><i class="fa-regular fa-calendar"></i> Sep 18, 14:00</span>
+          </div>
+          <h4>Aura Junior Colts vs Metro Bulls</h4>
+          <p style="font-size: 0.88rem; margin: 8px 0 16px 0;">50-Over Championship Semifinal 1</p>
+          <div style="font-size: 0.82rem; color: var(--text-muted);"><i class="fa-solid fa-location-dot"></i> Ground 2 Turf Pitch</div>
+        </div>
+
+        <div class="glass-panel" style="padding: 24px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+            <span class="badge-cyan">Night Super Sixes</span>
+            <span style="color: var(--gold-primary); font-size: 0.85rem;"><i class="fa-regular fa-calendar"></i> Sep 22, 19:30</span>
+          </div>
+          <h4>Aura Blitzers vs Coastline Kings</h4>
+          <p style="font-size: 0.88rem; margin: 8px 0 16px 0;">Floodlight Blitz Trophy Grand Final</p>
+          <div style="font-size: 0.82rem; color: var(--text-muted);"><i class="fa-solid fa-location-dot"></i> Aura International Arena</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SUCCESS STORIES / TESTIMONIALS ================= -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><span class="badge-cyan"><i class="fa-solid fa-medal"></i> Player Journeys</span></div>
+        <h2 class="section-title">Success <span class="gradient-text-cyan">Stories</span></h2>
+        <p class="section-desc">From our morning nets to international franchise drafts and national trophies.</p>
+      </div>
+
+      <div style="max-width: 820px; margin: 0 auto; position: relative;">
+        <!-- Testimonial Slide 1 -->
+        <div class="testimonial-slide active glass-panel" style="padding: 40px; text-align: center;">
+          <img src="assets/virat3.jpg" alt="Virat Kohli" style="width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid var(--cyan-neon); margin-bottom: 18px; box-shadow: 0 0 20px var(--cyan-glow);">
+          <p style="font-size: 1.15rem; font-style: italic; color: #f1f5f9; margin-bottom: 24px; line-height: 1.7;">
+            "Aura Cricket Academy transformed my entire bat swing arc. MS Dhoni Coach identified my backfoot trigger movement flaw with 1000fps video sensors in just one week. Today, I'm captaining the state U-19 squad with a 155+ strike rate."
+          </p>
+          <h4 style="font-size: 1.25rem; color: #fff; margin-bottom: 2px;">Virat Kohli</h4>
+          <span style="color: var(--gold-primary); font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 0.88rem;">
+            State U-19 Captain • IPL Emerging Scout Shortlist
+          </span>
+        </div>
+
+
+    </div>
+  </section>
+
+  <!-- ================= GALLERY SECTION (MASONRY & LIGHTBOX) ================= -->
+  <section id="gallery" class="section" style="background: rgba(5, 11, 24, 0.7);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><span class="badge-gold"><i class="fa-solid fa-camera"></i> 4K Visuals</span></div>
+        <h2 class="section-title">Academy <span class="gradient-text-gold">Gallery</span></h2>
+        <p class="section-desc">Experience our floodlit arena, turf wickets, and training sessions in 4K resolution.</p>
+        
+        <!-- Category Filters -->
+        <div style="display: flex; justify-content: center; gap: 10px; margin-top: 28px; flex-wrap: wrap;">
+          <button class="btn btn-secondary btn-sm gallery-filter-btn active" data-filter="all">All Visuals</button>
+          <button class="btn btn-secondary btn-sm gallery-filter-btn" data-filter="Matches">Matches</button>
+          <button class="btn btn-secondary btn-sm gallery-filter-btn" data-filter="Nets Training">Nets Training</button>
+          <button class="btn btn-secondary btn-sm gallery-filter-btn" data-filter="Fitness & Biomechanics">Fitness & Tech</button>
+          <button class="btn btn-secondary btn-sm gallery-filter-btn" data-filter="Trophy Celebrations">Trophies</button>
+        </div>
+      </div>
+
+      <!-- Masonry Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;">
+        
+        <div class="gallery-item glass-panel" data-category="Matches" style="cursor: pointer; overflow: hidden; height: 260px; position: relative;">
+          <img src="assets/images (1).jpg" alt="Floodlight Arena" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;">
+          <div class="gallery-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(0deg, rgba(0,0,0,0.9), transparent);">
+            <span class="badge-cyan" style="font-size: 0.7rem;">Matches</span>
+            <h4 style="margin-top: 6px; font-size: 1.1rem; color: #fff;">Night Floodlights at Aura Arena</h4>
+          </div>
+        </div>
+
+        <div class="gallery-item glass-panel" data-category="Nets Training" style="cursor: pointer; overflow: hidden; height: 260px; position: relative;">
+          <img src="assets/nets 2.jpg" alt="Nets Training" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;">
+          <div class="gallery-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(0deg, rgba(0,0,0,0.9), transparent);">
+            <span class="badge-cyan" style="font-size: 0.7rem;">Nets Training</span>
+            <h4 style="margin-top: 6px; font-size: 1.1rem; color: #fff;">145 km/h Seam Release in Turf Nets</h4>
+          </div>
+        </div>
+
+        <div class="gallery-item glass-panel" data-category="Fitness & Biomechanics" style="cursor: pointer; overflow: hidden; height: 260px; position: relative;">
+          <img src="assets/images.jpg" alt="Biomechanics Lab" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;">
+          <div class="gallery-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(0deg, rgba(0,0,0,0.9), transparent);">
+            <span class="badge-gold" style="font-size: 0.7rem;">Fitness & Biomechanics</span>
+            <h4 style="margin-top: 6px; font-size: 1.1rem; color: #fff;">Energy Systems.Biomechanical Forces.Injury Prevention</h4>
+          </div>
+        </div>
+
+        <div class="gallery-item glass-panel" data-category="Trophy Celebrations" style="cursor: pointer; overflow: hidden; height: 260px; position: relative;">
+          <img src="assets/trophy.jpg" alt="Trophy Victory" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;">
+          <div class="gallery-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(0deg, rgba(0,0,0,0.9), transparent);">
+            <span class="badge-gold" style="font-size: 0.7rem;">Trophy Celebrations</span>
+            <h4 style="margin-top: 6px; font-size: 1.1rem; color: #fff;">over all trophy
+            </h4>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY LIGHTBOX MODAL ================= -->
+  <div id="gallery-lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 100000; align-items: center; justify-content: center; flex-direction: column;">
+    <button id="lightbox-close" style="position: absolute; top: 30px; right: 40px; background: none; border: none; font-size: 2.2rem; color: #fff; cursor: pointer;">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <img id="lightbox-image" src="" alt="Enlarged Visual" style="max-width: 88vw; max-height: 80vh; border-radius: 12px; border: 2px solid var(--cyan-neon); box-shadow: 0 0 50px rgba(0, 242, 254, 0.4);">
+    <h3 id="lightbox-caption" style="color: #fff; margin-top: 20px; font-size: 1.3rem;"></h3>
+  </div>
+
+  <!-- ================= JOIN TRIAL MODAL ================= -->
+  <div id="trial-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(16px); z-index: 99999; align-items: center; justify-content: center;">
+    <div class="glass-panel" style="max-width: 540px; width: 92%; padding: 36px; border: 1px solid var(--cyan-neon); position: relative;">
+      <button id="close-trial-modal" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.5rem; color: #94a3b8; cursor: pointer;">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <span class="badge-gold" style="margin-bottom: 12px;"><i class="fa-solid fa-bolt"></i> Free Scout Evaluation</span>
+      <h2 style="font-size: 1.85rem; margin-bottom: 8px;">Book a Trial Session</h2>
+      <p style="font-size: 0.95rem; margin-bottom: 24px;">Undergo 60 minutes of radar-timed bowling, bat speed tracking, and coach assessment under arena floodlights.</p>
+      
+      <form id="trial-booking-form" style="display: flex; flex-direction: column; gap: 16px;">
+        <div>
+          <label style="display: block; font-size: 0.85rem; margin-bottom: 6px; color: var(--text-secondary);">Athlete Full Name</label>
+          <input type="text" id="trial-name" required placeholder="e.g. Virat Sharma" style="width: 100%; background: rgba(14, 28, 64, 0.7); border: 1px solid var(--border-glass); padding: 12px 16px; border-radius: 8px; color: #fff; font-family: var(--font-body); outline: none;">
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div>
+            <label style="display: block; font-size: 0.85rem; margin-bottom: 6px; color: var(--text-secondary);">Age Group</label>
+            <select id="trial-age" style="width: 100%; background: #0a1428; border: 1px solid var(--border-glass); padding: 12px 16px; border-radius: 8px; color: #fff; font-family: var(--font-body); outline: none;">
+              <option value="U-15">Under-15</option>
+              <option value="U-19" selected>Under-19 High Performance</option>
+              <option value="Senior">Senior Pro Squad</option>
+            </select>
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.85rem; margin-bottom: 6px; color: var(--text-secondary);">Primary Role</label>
+            <select id="trial-role" style="width: 100%; background: #0a1428; border: 1px solid var(--border-glass); padding: 12px 16px; border-radius: 8px; color: #fff; font-family: var(--font-body); outline: none;">
+              <option value="Batsman">Top-Order Batsman</option>
+              <option value="Fast Bowler">Fast Bowler (135+ km/h)</option>
+              <option value="All-Rounder">All-Rounder</option>
+              <option value="Wicketkeeper">Wicketkeeper</option>
+              <option value="Spin Specialist">Spin Specialist</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.85rem; margin-bottom: 6px; color: var(--text-secondary);">Desired Program</label>
+          <select id="trial-program" style="width: 100%; background: #0a1428; border: 1px solid var(--border-glass); padding: 12px 16px; border-radius: 8px; color: #fff; font-family: var(--font-body); outline: none;">
+            <option value="Power Hitting Program">Power Hitting Masterclass</option>
+            <option value="Fast Bowling Program">145+ km/h Fast Bowling Academy</option>
+            <option value="Spin Mastery Program">Spin Mastery & Biomechanics</option>
+            <option value="Professional Match Training">Professional Match Training</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 10px; width: 100%;">
+          <i class="fa-solid fa-check"></i> Confirm Trial Booking
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= LUXURY FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="assets/logo.jpg" alt="Aura Cricket Academy Logo" class="brand-logo-img">
+            <div class="brand-text">
+              <span class="title">Aura</span>
+              <span class="subtitle">Cricket Academy</span>
+            </div>
+          </div>
+          <p>Where future champions are forged with 4000-lux night floodlights, ICC Master Coaches, and high-velocity sports-tech analytics.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Academy</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Overview</a></li>
+            <li><a href="#programs">Elite Programs</a></li>
+            <li><a href="#coaches">Coaching Staff</a></li>
+            <li><a href="#tournaments">Championships</a></li>
+            <li><a href="dashboard.html">Sports-Tech Portal</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Facilities</h4>
+          <ul class="footer-links">
+            <li><a href="#gallery">Night Floodlights Arena</a></li>
+            <li><a href="#gallery">1000fps Seam Cameras</a></li>
+            <li><a href="#gallery">Turf & Clay Pitches</a></li>
+            <li><a href="#gallery">Cryotherapy & Gym</a></li>
+            <li><a href="#gallery">Video Analysis Theatre</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col newsletter-box">
+          <h4>Aura Scouting Dispatch</h4>
+          <p>Subscribe for upcoming tournament drafts, coaching clinics, and scout trials.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required class="newsletter-input">
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+          <div style="margin-top: 18px; font-size: 0.82rem; color: var(--text-muted);">
+            <i class="fa-solid fa-location-dot" style="color: var(--cyan-neon);"></i> Aura International Oval, Arena Boulevard
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Aura Cricket Academy. All Rights Reserved. Built for IPL & International Excellence.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Training</a>
+          <a href="dashboard.html">Admin Cockpit</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Quick Booking FAB -->
+  <div class="floating-actions">
+    <button class="fab-btn open-trial-modal" title="Book Free Trial Session">
+      <i class="fa-solid fa-bolt"></i>
+    </button>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/stadium-canvas.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

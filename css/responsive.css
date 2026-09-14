@@ -1,0 +1,178 @@
+/* ==========================================================
+   AURA CRICKET ACADEMY - RESPONSIVE DESIGN SYSTEM
+   From 4K Ultra-Wide down to Compact Mobile Devices
+   ========================================================== */
+
+/* 4K & Ultra-Wide Screens (>= 2000px) */
+@media (min-width: 2000px) {
+  .container {
+    max-width: 1780px;
+  }
+  body {
+    font-size: 18px;
+  }
+  .hero-title {
+    font-size: 6.2rem;
+  }
+  .chart-wrapper {
+    height: 420px;
+  }
+}
+
+/* Standard Desktops (<= 1280px) */
+@media (max-width: 1280px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+/* Tablets (<= 992px) */
+@media (max-width: 992px) {
+  .section {
+    padding: 80px 0;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 76px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 76px);
+    background: rgba(4, 10, 26, 0.98);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-top: 1px solid var(--border-glass);
+    z-index: 999;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .dash-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border-glass);
+    padding: 16px;
+  }
+
+  .dash-nav-list {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 10px;
+  }
+
+  .dash-nav-item {
+    white-space: nowrap;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .student-stat-summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Screens (<= 768px) */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 110px 0 60px 0;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-subheading {
+    font-size: 1.1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-stats-strip {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 18px 24px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .floating-cricket-ball {
+    display: none;
+  }
+
+  .dash-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .dash-header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .role-badge-selector {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  .dash-main {
+    padding: 18px;
+  }
+
+  /* Split Login on Mobile */
+  .login-split-container {
+    flex-direction: column;
+  }
+  .login-visual-pane {
+    display: none;
+  }
+  .login-form-pane {
+    width: 100%;
+    padding: 30px 20px;
+  }
+}
+
+/* Small Mobile (<= 480px) */
+@media (max-width: 480px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-title {
+    font-size: 2.3rem;
+  }
+}
